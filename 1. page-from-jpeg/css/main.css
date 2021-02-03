@@ -12,7 +12,7 @@ header {
 
 h1 {
     font-size: 36px;
-    margin: 24px 0;
+    margin: 12px 0;
     font-weight: normal;
 }
 
@@ -38,7 +38,8 @@ p {
     justify-content: left;
     display: grid;
     grid-template-columns: repeat(6, 1fr);
-    grid-column-gap: 12px;
+    grid-column-gap: 18px;
+    grid-row-gap: 18px;
 }
 
 .logo {
@@ -61,8 +62,65 @@ p {
 
 .section--about {
     grid-column: 1/6;
+    grid-row: 3/6;
 }
 
 .section--area-of-focus {
     grid-column: 1/4;
+}
+
+.image-with-text {
+    display: flex;
+}
+
+.image-with-text > img {
+    object-fit: contain;
+    align-self: flex-start;
+}
+
+.image-with-text > div {
+    align-self: center;
+    margin-left: 6px;
+}
+
+.section--follow-us .image-with-text {
+    margin: 12px 0;
+}
+
+.profile-photo {
+    width: 48px;
+    height: auto;
+    border-radius: 50%;
+}
+
+.icon {
+    width: 18px;
+    height: auto;
+}
+
+.tags-container {
+    display: flex;
+    flex-flow: row wrap;
+    gap: 10px;
+ }
+
+ .tags-container .icon {
+    padding: 3px;
+ }
+
+ .tag {
+    font-size: 15px;
+    background-color: #f0f0f0;
+ }
+
+ .icon.internet {
+     background-color: #5A4D99;
+ }
+
+ .icon.culture {
+    background-color: #BFCC36;
+}
+
+.icon.handshake {
+    background-color: #1A587A;
 }
