@@ -2,24 +2,53 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
-.header {
+header {
     height: 200px;
     overflow: hidden;
 }
 
-
-.header-crop img {
-    margin-top: -550px;
+h1 {
+    font-size: 36px;
+    margin: 24px 0;
+    font-weight: normal;
 }
 
-.header-font {
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 36px;
+h2 {
+    font-size: 21px;
+    font-weight: normal;
+    margin: 18px 0;
+}
+
+p {
+    font-size: 15px;
+    font-size: 15px;
+    margin: 18px 0;
+}
+
+.header-crop img {
+    margin-top: -280px;
+    width: 100%;
 }
 
 .container {
-    width: 984px;
+    max-width: 984px;
     justify-content: left;
 }
+
+.logo {
+    position: relative;
+    top: -71px;
+    width: 142px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-bottom: -71px;
+}
+
+.logo img {
+    width: 100%;
+    height: auto;
+}
+
