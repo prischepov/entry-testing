@@ -36,6 +36,9 @@ p {
 .container {
     max-width: 984px;
     justify-content: left;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-column-gap: 12px;
 }
 
 .logo {
@@ -52,3 +55,14 @@ p {
     height: auto;
 }
 
+.grid-columns-all {
+    grid-column: 1/7;
+}
+
+.section--about {
+    grid-column: 1/6;
+}
+
+.section--area-of-focus {
+    grid-column: 1/4;
+}
