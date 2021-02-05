@@ -34,6 +34,10 @@ a {
     text-decoration: none;
 }
 
+.mobile-only {
+    display: none;
+}
+
 .font-large-header {
     font-size: 36px;
 }
@@ -42,12 +46,16 @@ a {
     font-size: 21px;
 }
 
+.font-small {
+    font-size: 12px;
+}
+
 .text-align-right {
     text-align: right;
 }
 
-.margin-vertical-small {
-    margin: 12px 0;
+.margin-bottom-small {
+    margin-bottom: 12px;
 }
 
 .header-crop img {
@@ -80,7 +88,7 @@ a {
 }
 
 .grid-columns-all {
-    grid-column: 1/7;
+    grid-column: 1/-1;
 }
 
 .grid-columns-half{
@@ -226,10 +234,59 @@ a {
     bottom: 0;
 }
 
+.details-section {
+    font-size: 36px;
+}
+
 .button--details {
     background-color: #FFA500;
     color: white;
     padding: 7px 0;
     border: 0 none;
     width: 100%;
+    margin-top: 12px;
+}
+
+/* iPad portrait and below */
+@media all and (max-width: 768px) {
+
+    .mobile-only {
+        display: block;
+    }
+
+    .desktop-only {
+        display: none;
+    }
+
+    .grid-columns-all-mobile {
+        grid-column: 1/-1;
+    }
+
+    .container {
+        width: 100%;
+    }
+    
+    .section--about {
+        grid-row: initial;
+     }
+
+     .section--area-of-focus {
+        order: 1;
+     }
+
+     .section--contact {
+        order: 2;
+     }
+     
+     .section--follow-us {
+        order: 3;
+     }
+
+     .gallery-item-container {
+         height: initial;
+     }
+
+     .details-section {
+         font-size: 21px;
+     }
 }
