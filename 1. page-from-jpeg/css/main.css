@@ -3,6 +3,7 @@ body {
     flex-direction: column;
     align-items: center;
     font-family: Arial, Helvetica, sans-serif;
+    color: #383838;
 }
 
 header {
@@ -10,13 +11,13 @@ header {
     overflow: hidden;
 }
 
-h1 {
+h2 {
     font-size: 36px;
     margin: 12px 0;
     font-weight: normal;
 }
 
-h2 {
+h3 {
     font-size: 21px;
     font-weight: normal;
     margin: 18px 0;
@@ -24,8 +25,29 @@ h2 {
 
 p {
     font-size: 15px;
-    font-size: 15px;
     margin: 18px 0;
+    color: #757575;
+}
+
+a {
+    color: #009DF2;
+    text-decoration: none;
+}
+
+.font-large-header {
+    font-size: 36px;
+}
+
+.font-large-subheader {
+    font-size: 21px;
+}
+
+.text-align-right {
+    text-align: right;
+}
+
+.margin-vertical-small {
+    margin: 12px 0;
 }
 
 .header-crop img {
@@ -34,12 +56,13 @@ p {
 }
 
 .container {
-    max-width: 984px;
+    width: 984px;
     justify-content: left;
     display: grid;
     grid-template-columns: repeat(6, 1fr);
     grid-column-gap: 18px;
     grid-row-gap: 18px;
+    margin-bottom: 32px;
 }
 
 .logo {
@@ -58,6 +81,10 @@ p {
 
 .grid-columns-all {
     grid-column: 1/7;
+}
+
+.grid-columns-half{
+    grid-column: 1/4;
 }
 
 .section--about {
@@ -123,4 +150,86 @@ p {
 
 .icon.handshake {
     background-color: #1A587A;
+}
+
+.gallery-wrapper {
+    width: 100%;
+    background: #f0f0f0;
+ }
+
+ .gallery-container {
+     margin: 48px auto;
+ }
+
+.gallery-header {
+    grid-column: 1/4;
+}
+
+.search-container {
+    grid-column: 4/7;
+    text-align: right;
+    align-self: center;
+}
+
+.search-container > input {
+    width: 400px;
+    height: 30px;
+    padding-left: 30px;
+    border-radius: 5px;
+    border: 1px solid #383838;
+}
+
+.search-container > img {
+    vertical-align: middle;
+    position: relative;
+    left: 30px;
+}
+
+.gallery-item-container {
+    grid-column: span 2;
+    padding: 21px;
+    background-color: white;
+    height: 400px;
+}
+
+.gallery-item {
+    height: 100%;
+    position: relative;
+}
+
+.gallery-item-header {
+    display: flex;
+}
+
+.gallery-item-img {
+    width: 80px;
+    height: auto;
+    border-radius: 5px;
+    margin-right: 10px;
+}
+
+.button {
+    border-radius: 3px;
+    font-weight: bold;
+}
+
+.button--public {
+    width: fit-content;
+    background-color: white;
+    border: 1px solid #009DF2;
+    color: #009DF2;
+}
+
+.details-section {
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+}
+
+.button--details {
+    background-color: #FFA500;
+    color: white;
+    padding: 7px 0;
+    border: 0 none;
+    width: 100%;
 }
