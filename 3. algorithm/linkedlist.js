@@ -201,5 +201,27 @@ class Node {
             head = previous.previous; 
         }
     }
+
+    sortList() {  
+        if(this.isEmpty()) {  
+            return this;  
+        } 
+
+        let currentNode = this.head;        
+        while(currentNode) {
+            nextNode = currentNode.next;
+
+            while(nextNode) {
+                if(currentNode.value > nextNode.value) {  
+                    let temp = currentNode.value;  
+                    currentNode.value = nextNode.value;  
+                    nextNode.value = temp;  
+                } 
+                nextNode = nextNode.next;
+            }
+            currentNode = currentNode.next;
+        }
+        return this;
+    }  
 }
   
