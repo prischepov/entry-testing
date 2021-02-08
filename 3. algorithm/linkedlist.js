@@ -22,10 +22,15 @@ class Node {
         return this.length;
     }
 
-    getNodeAtIndex(index) {
+    validateIndex(index) {
         if (index < 0 || index >= this.length) {
             throw new Error('index is outside of the list boundaries');
         }
+    }
+
+    getNodeAtIndex(index) {
+        validateIndex(index);
+
         if (this.isEmpty()) {
             return null;
         }
@@ -118,9 +123,8 @@ class Node {
       }
 
     removeAtIndex(index) {
-        if (index < 0 || index >= this.length) {
-            throw new Error('index is outside of the list boundaries');
-        }
+        validateIndex(index);
+
         if (this.isEmpty()) {
             return;
         }
@@ -130,16 +134,29 @@ class Node {
         } else if (index == this.length - 1) {
             removeLast();
         } else {
-            nodeToRemove = this.getNodeAtIndex(index);
-            const previousNode = removedNode.previous;
-            const nextNode = removedNode.next;
+            const nodeToRemove = this.getNodeAtIndex(index);
+            const previousNode = nodeToRemove.previous;
+            const nextNode = nodeToRemove.next;
 
-            removedNode.next = null;
-            removedNode.prevous = null;
+            nodeToRemove.next = null;
+            nodeToRemove.prevous = null;
             previousNode.next = nextNode;
             nextNode.previous = previousNode;
             this.length--;
         }
+    }
+
+    moveNode(sourceIndex, destinationIndex) {
+        validateIndex(sourceIndex);
+        validateIndex(destinationIndex);
+
+        if(sourceIndex === destinationIndex) {
+            return;
+        }
+
+        const sourceNodeValue = this.getNodeAtIndex(indexOne).value;
+        this.removeAtIndex(sourceIndex);
+        this.insertAtIndex(destinationIndex, sourceNodeValue);
     }
 }
   
