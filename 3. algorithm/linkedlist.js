@@ -227,5 +227,18 @@ class Node {
     cheapSort() {
         return this.toArray().sort();
     }
+
+    slice(startIndex, endIndex) {
+        this.validateIndex(startIndex);
+
+        if(!endIndex) {
+            endIndex = this.length - 1;
+        }
+        
+        this.validateIndex(endIndex);
+
+        const subset = this.toArray().slice();
+        return this.fromArray(subset);
+    }
 }
   
