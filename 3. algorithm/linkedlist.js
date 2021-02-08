@@ -18,6 +18,10 @@ class Node {
         return this.length === 0;
     }
 
+    getLength() {
+        return this.length;
+    }
+
     getNodeAtIndex(index) {
         if (index < 0 || index >= this.length) {
             throw new Error('index is outside of the list boundaries');
@@ -75,6 +79,7 @@ class Node {
             newNode.next = currentNode;
             newNode.previous = beforeCurrentNode;
         }
+        this.length++;
     }
 }
   
