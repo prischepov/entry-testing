@@ -181,5 +181,25 @@ class Node {
         });
         return list;
     }
+
+    toString() {
+        return this.toArray().toString();
+    }
+
+    reverse() {
+        let previous = null;
+        let current = head;
+        
+        while(current) {
+            previous = current.previous;
+            current.previous = current.next;
+            current.next = previous;
+            current = current.previous;
+        }
+        
+        if (previous != null) { 
+            head = previous.previous; 
+        }
+    }
 }
   
