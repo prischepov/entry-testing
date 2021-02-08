@@ -60,12 +60,12 @@ class Node {
     addLast(value) {
         const newNode = new Node(value);
         if (this.isEmpty()) {
-          this.head = newNode;
-          this.tail = newNode;
+            this.head = newNode;
+            this.tail = newNode;
         } else {
-          this.tail.next = newNode;
-          newNode.previous = this.tail;
-          this.tail = newNode;
+            this.tail.next = newNode;
+            newNode.previous = this.tail;
+            this.tail = newNode;
         }
         this.length++;
     }
@@ -157,6 +157,29 @@ class Node {
         const sourceNodeValue = this.getNodeAtIndex(indexOne).value;
         this.removeAtIndex(sourceIndex);
         this.insertAtIndex(destinationIndex, sourceNodeValue);
+    }
+
+    toArray() {
+        const array = [];
+        let current = this.head;
+            
+        while(current) {
+            array.push(current.element);
+            current = current.next;
+        }
+        return array;
+    };
+
+    fromArray(sourceArray) {
+        if(!sourceArray || !Array.isArray(sourceArray) {
+            throw new Error('please provide a valid array object');
+        }
+        
+        const list = new LinkedList();
+        sourceArray.forEach(element => {
+            list.addLast(element);
+        });
+        return list;
     }
 }
   
