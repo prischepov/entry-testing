@@ -31,5 +31,4 @@ One more thing: be brave and creative :)
 We are waiting for you to join our team!
 
 ## Contacts
-E-mail: anton.zubarev@t-systems.com
-        Olga.Malakhova@telekom.com
+E-mail: igor.prishchepov@t-systems.com
