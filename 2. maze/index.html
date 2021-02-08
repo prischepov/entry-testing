@@ -331,6 +331,15 @@
     }
 
     function createPiece () {
+        
+        let direction = Math.floor(Math.random() * directionNames.length);
+        let stepsCount = 0;
+        let turnsCount = 0;
+        let moves = [];
+        let position = {
+            left: Math.floor(Math.random() * 10),
+            top: Math.floor(Math.random() * 10)
+        };
 
         let field = new Field();
 
@@ -355,37 +364,79 @@
             return pieceElement.style.top === '450px' && pieceElement.style.left === '0px';
         };
 
-        let direction = Math.floor(Math.random() * directionNames.length);
-        let stepsCount = 0;
-        let turnsCount = 0;
-        let moves = [];
-        let position = {
-            left: Math.floor(Math.random() * 10),
-            top: Math.floor(Math.random() * 10)
-        };
-
         let piecePublicApi = {
             //@TODO: Create function "isThereWay", which checks if ball can move in the direction
-            isThereWay() {
+            isThereWay(directionName) {
+                return !field.isTheWallThere(position, directionName);
             },
 
             //@TODO: Create function "turnLeft"
             turnLeft() {
+                direction = direction == 0 ? 3 : direction - 1;
+                rotatePiece(direction);
             },
 
             //@TODO: Create function "turnRight"
             turnRight() {
+                direction = direction == 3 ? 0 : direction + 1;
+                rotatePiece(direction);
             },
 
-            //@TODO: Create function "goFroward", which move the square to specific direction
+            //@TODO: Create function "goForward", which moves the square to specific direction
             goForward() {
+                switch (directionNames[direction]) {
+                    case 'up':
+                        position.top = position.top - 1;
+                        break;
 
+                    case 'right':
+                        position.left = position.left + 1;
+                        break;
+
+                    case 'down':
+                    position.top = position.top + 1;
+                        break;
+
+                    case 'left':
+                    position.left = position.left - 1;
+                        break;
+                }
+                movePiece(position);
             },
 
             amIFree() {
-                return isPieceOut();
+                return position.left == 0 && position.top == 9;
+            },
+
+            findWay() {
+                while (!this.amIFree()) {
+                    if (this.isThereWay(directionNames[direction])) {
+                        this.goForward();
+                    }
+                    else if (this.isThereWay(getLeftDirection())) {
+                        this.turnLeft();
+                    } 
+                    else if (this.isThereWay(getRightDirection())) {
+                        this.turnRight();
+                    }
+                    else {
+                        // turn around
+                        this.turnLeft();
+                        this.turnLeft();
+                    }
+                }
             }
         };
+
+        let getLeftDirection = () => { 
+            let leftDirection = direction == 0 ? 3 : direction - 1;
+            return directionNames[leftDirection];
+        }
+
+        let getRightDirection = () => { 
+            let rightDirection = direction == 3 ? 0 : direction + 1;
+            return directionNames[rightDirection];
+        }
 
         stepper = setInterval(() => {
 
@@ -425,9 +476,7 @@
 
     function escapePlan() {
         const piece = createPiece();
-        for (let i=0; i<15; i++) {
-            piece.findWay();
-        }
+        piece.findWay();
     }
 
     function main() {
