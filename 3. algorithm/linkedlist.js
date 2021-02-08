@@ -168,13 +168,13 @@ class Node {
             current = current.next;
         }
         return array;
-    };
+    }
 
     fromArray(sourceArray) {
-        if(!sourceArray || !Array.isArray(sourceArray) {
+        if(!sourceArray || !Array.isArray(sourceArray)) {
             throw new Error('please provide a valid array object');
         }
-        
+
         const list = new LinkedList();
         sourceArray.forEach(element => {
             list.addLast(element);
