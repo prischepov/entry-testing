@@ -202,14 +202,14 @@ class Node {
         }
     }
 
-    sortList() {  
+    bubbleSort() {  
         if(this.isEmpty()) {  
             return this;  
         } 
 
         let currentNode = this.head;        
         while(currentNode) {
-            nextNode = currentNode.next;
+            let nextNode = currentNode.next;
 
             while(nextNode) {
                 if(currentNode.value > nextNode.value) {  
@@ -222,6 +222,10 @@ class Node {
             currentNode = currentNode.next;
         }
         return this;
-    }  
+    }
+    
+    cheapSort() {
+        return this.toArray().sort();
+    }
 }
   
