@@ -26,6 +26,10 @@ class Node {
         if (index < 0 || index >= this.length) {
             throw new Error('index is outside of the list boundaries');
         }
+        if (this.isEmpty()) {
+            return null;
+        }
+
         let currentNode = this.head;
         let currentIndex = 0;
         while (currentIndex !== index) {
@@ -80,6 +84,62 @@ class Node {
             newNode.previous = beforeCurrentNode;
         }
         this.length++;
+    }
+
+    removeFirst() {
+        if (this.isEmpty()) {
+            return;
+        }
+        const firstNode = this.head;
+        const secondNode = this.head.next;
+        if (secondNode) {
+            secondNode.previous = null;
+            firstNode.next = null;
+        } else {
+            this.tail = null;
+        }
+        this.head = secondNode;
+        this.length--;
+    }
+
+    removeLast() {
+        if (this.isEmpty()) {
+            return;
+        }
+        const beforeLast = this.tail.previous;
+        if (beforeLast) {
+          beforeLast.next = null;
+          this.tail.previous = null;
+        } else {
+          this.head = null;
+        }
+        this.tail = beforeLast;
+        this.length--;
+      }
+
+    removeAtIndex(index) {
+        if (index < 0 || index >= this.length) {
+            throw new Error('index is outside of the list boundaries');
+        }
+        if (this.isEmpty()) {
+            return;
+        }
+
+        if (index == 0) {
+            removeFirst();
+        } else if (index == this.length - 1) {
+            removeLast();
+        } else {
+            nodeToRemove = this.getNodeAtIndex(index);
+            const previousNode = removedNode.previous;
+            const nextNode = removedNode.next;
+
+            removedNode.next = null;
+            removedNode.prevous = null;
+            previousNode.next = nextNode;
+            nextNode.previous = previousNode;
+            this.length--;
+        }
     }
 }
   
